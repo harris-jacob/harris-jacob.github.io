@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.bg-one {
+    height: 100%;
+    background-size: 'cover';
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-one > span {
+    font-size: 60px;
+    font-weight: 100;
+}
