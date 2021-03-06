@@ -1,0 +1,40 @@
+.about {
+    padding: 4em;
+    .top {
+        display: flex;
+        @media only screen and (max-width: 1200px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+
+            .text {
+                max-width: 600px;
+                padding-left: 0 !important;
+                padding-top: 4rem;
+            }
+        }
+        .image {
+            max-width: 600px;
+            > img {
+                width: 100%;
+                border-radius: 1rem;
+                box-shadow: 0 52px 74px rgba(0, 0, 0, 0.4);
+            }
+        }
+        .text {
+            padding-left: 3rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 2rem;
+            .body-text {
+                color: rgb(156, 156, 156);
+            }
+            .title-text {
+                font-family: 'Bebas Neue', cursive;
+                font-weight: 500;
+                font-size: 35px;
+            }
+        }
+    }
+}
