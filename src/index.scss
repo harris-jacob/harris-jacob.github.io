@@ -1,13 +1,16 @@
 html,
 body {
     margin: 0;
-    height: 100%;
     color: #2c2c53;
     background-color: #fffff3;
     font-family: 'Noto Sans HK', 'Helvetica', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-y: overlay;
+    font-weight: 100;
+}
+
+body {
+    overflow: overlay;
 }
 
 #root {
@@ -22,14 +25,23 @@ code {
 a {
     color: #b06873;
     text-decoration: none;
-    font-weight: 100;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    font-weight: inherit;
+    font-size: inherit;
+    color: #b06873;
+    text-decoration: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
 }
 
 .content {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    max-width: 1300px;
 }
