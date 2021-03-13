@@ -16,39 +16,42 @@ const Content = () => {
     const getPosition = () => {
         switch (page) {
             case 1:
-                return '7%';
+                return '0';
             case 2:
-                return '35%';
+                return '30vh';
             default:
-                return '50%';
+                return '50vh';
         }
     };
 
     // Menu motion
     const menuProps = useSpring({
-        position: 'absolute',
+        position: 'relative',
         top: getPosition(),
-        left: '50%',
-        transform: 'translate(-50%, -50%)'
+        transform: page === 0 ? 'translate(0%, -50%)' : 'translate(0%, 0%) '
     });
 
     // Page transitions
     const transitions = useTransition(page === 1, null, {
-        from: { opacity: 0, transform: 'translate(0px, 50rem)' },
-        enter: { opacity: 1, transform: 'translate(0px, 10%)' },
-        leave: { opacity: 0, transform: 'translate(0px, 50rem)' }
+        from: {
+            opacity: 0,
+            transform: 'translate(0px, 500px)',
+            position: 'relative',
+            width: '100%'
+        },
+        enter: {
+            opacity: 1,
+            position: 'relative',
+            transform: 'translate(0px, 0px)'
+        },
+        leave: { opacity: 0, transform: 'translate(0px, 500px)' }
     });
 
     return (
         <div className="content">
             <animated.div style={menuProps}>
-                <Menu
-                    index={page}
-                    state={page === 0}
-                    change={changePageHandler}
-                />{' '}
+                <Menu index={page} change={changePageHandler} />{' '}
             </animated.div>
-
             {transitions.map(
                 ({ item, key, props }) =>
                     item && (
@@ -57,7 +60,6 @@ const Content = () => {
                         </animated.div>
                     )
             )}
-            {page === 2 && <Socials />}
         </div>
     );
 };

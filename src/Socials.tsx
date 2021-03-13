@@ -68,7 +68,7 @@ export const SpringyLogo = ({
 }): JSX.Element => {
     const makeCalc = (i: number) => (x: number, y: number) => {
         return [
-            -(y - window.innerHeight / 2) * 0.7,
+            0,
             (x - window.innerWidth / 2 + (50 + 100 * (1 - i))) * 0.4,
             1.1
         ];

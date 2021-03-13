@@ -3,21 +3,27 @@ import { animated, useSpring, useTransition } from 'react-spring';
 import './Menu.scss';
 import { StyledTab, StyledTabs } from './Tabs';
 
+// @ts-ignore
+import Pdf from './resources/resume.pdf';
+import { Socials } from './Socials';
+
 export interface MenuProps {
     change: (key: number) => void;
-    state: boolean;
     index: number;
 }
 
 export const Menu = (props: MenuProps): JSX.Element => {
-    const { change, state, index } = props;
-    const textTransitions = useTransition(state, null, {
+    const { change, index } = props;
+    const textTransitions = useTransition(index === 0, null, {
         from: {
             opacity: 0,
             transform: 'translate3d(0,-40px,0)',
             position: 'absolute'
         },
-        enter: { opacity: 1, transform: 'translate3d(0, 12px,0)' },
+        enter: {
+            opacity: 1,
+            transform: 'translate3d(0, 9px,0)'
+        },
         leave: { opacity: 0, transform: 'translate3d(0,0px,0)' }
     });
 
@@ -29,7 +35,8 @@ export const Menu = (props: MenuProps): JSX.Element => {
     };
 
     const menuProps = useSpring({
-        transform: state ? 'translate3d(0, 0px, 0)' : 'translate3d(0, -20px, 0)'
+        transform:
+            index === 0 ? 'translate3d(0, 0px, 0)' : 'translate3d(0, -10px, 0)'
     });
 
     return (
@@ -41,7 +48,7 @@ export const Menu = (props: MenuProps): JSX.Element => {
                         <animated.div key={key} style={props}>
                             <span className="email">
                                 jacob.harris443@gmail.com |{' '}
-                                <a href="https://godotengine.org/">resume</a>{' '}
+                                <a href={Pdf}>resume</a>{' '}
                             </span>
                         </animated.div>
                     )
@@ -52,6 +59,7 @@ export const Menu = (props: MenuProps): JSX.Element => {
                         <StyledTab key={i} label={v} />
                     ))}
                 </StyledTabs>
+                {index === 2 && <Socials />}
             </animated.div>
         </div>
     );
