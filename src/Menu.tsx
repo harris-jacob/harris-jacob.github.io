@@ -59,8 +59,8 @@ export const Menu = (props: MenuProps): JSX.Element => {
                         <StyledTab key={i} label={v} />
                     ))}
                 </StyledTabs>
-                {index === 2 && <Socials />}
             </animated.div>
+                            {index === 2 && <Socials />}
         </div>
     );
 };

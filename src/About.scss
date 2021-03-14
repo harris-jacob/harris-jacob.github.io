@@ -56,15 +56,19 @@
     .middle {
         padding: 10rem 2rem 10rem;
         background-color: #0c0c18;
+        @media only screen and (max-width: 800px) {
+                padding-right: 0.5em;
+                padding-left: 0.5em;
+                .text {
+                    padding: 1em !important;
+                }
+            }
         .text {
             max-width: 900px;
             margin: auto;
             color: rgb(255, 255, 255);
             padding: 4em;
 
-            @media only screen and (max-width: 800px) {
-                padding: 1em;
-            }
         }
     }
 
