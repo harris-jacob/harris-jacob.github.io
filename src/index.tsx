@@ -4,7 +4,6 @@ import './index.scss';
 import { Menu } from './Menu';
 import { useSpring, animated, useTransition } from 'react-spring';
 import { About } from './About';
-import { Socials } from './Socials';
 
 const Content = () => {
     const [page, setPage] = React.useState<number>(0);

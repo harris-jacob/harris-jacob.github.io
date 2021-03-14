@@ -9,6 +9,16 @@ body {
     font-weight: 100;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(68, 68, 68, 0.52);
+    border-radius: 5px;
+}
+
 html,
 body {
     width: 100%;
