@@ -85,8 +85,8 @@ export const About = ({
 
                         <p>
                             I find myself designing web apps a lot, and I enjoy
-                            thinking about user experience. But, I don’t like
-                            being confined to the frontend; I like working in a
+                            thinking about user experience. I don’t like being
+                            confined to the frontend; I like working in a
                             variety of languages and tinkering with many pieces
                             of the architectural puzzle.
                         </p>
@@ -109,16 +109,17 @@ export const About = ({
                                         Research & Project Interests
                                     </p>
                                     <p className="body-text">
-                                        At Autodesk, most of my projects relate
-                                        to the democratization of manufacturing.
+                                        At work, most of my projects relate to
+                                        the democratization of manufacturing.
                                         This could be building experience based
                                         recommender systems to suggest process
                                         parameters to users, or using data from
                                         our{' '}
                                         <a href="https://en.wikipedia.org/wiki/Numerical_control">
                                             NC machines
-                                        </a>{' '}
-                                        in Birmingham to build better models of
+                                        </a>
+                                        {', '}
+                                        in Birmingham, to build better models of
                                         manufacturing processes.
                                     </p>
                                     <p className="body-text">
