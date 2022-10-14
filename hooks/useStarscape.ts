@@ -12,7 +12,7 @@ interface Star {
 export const useStarscape = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
-  const stars = useRef<Array<Star>>(generateStars(0.7));
+  const stars = useRef<Array<Star>>(generateStars(0.1));
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -21,28 +21,27 @@ export const useStarscape = () => {
   }, []);
 
   const springs = useSprings(stars.current.length, 
-    stars.current.map((_) => ({
+    stars.current.map((_, idx) => ({
+      delay: idx * 1,
       config: {
-        tension: 170,
-        friction: 40 
+        tension: 250,
+        friction: 40,
       },
       loop: true,
       from: {
-      alpha: (Math.random() + 1) / 2
+      alpha: 0.5,
     }, 
       to: {
-        alpha: (Math.random() + 0.5) / 2
+        alpha: 0.6,
       }
     }))
   )
 
-  useAnimationFrame((time) =>  {
+  useAnimationFrame(() =>  {
     canvasRef.current && contextRef.current && clear(canvasRef.current, contextRef.current);
     springs.forEach((spring, idx) => {
-      if(Math.round(Math.random() * 10) % 10 === 0) {
-      spring.alpha.advance(time)
-      }
-      contextRef.current && canvasRef.current && drawStar(contextRef.current, canvasRef.current, {...stars.current[idx], alpha: spring.alpha.get()})
+      contextRef.current && drawStar(contextRef.current, {...stars.current[idx], alpha: spring.alpha.get()})
+      return
     })
   })
 
@@ -62,7 +61,7 @@ const generateStars = (density: number): Array<Star> => {
   const stars = new Array(STAR_COUNT).fill("").map(() => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
-    scale: Math.random() * 2,
+    scale: Math.random() * 4,
     alpha: (Math.random() + 0.1) / 1.1,
   }));
 
@@ -80,10 +79,10 @@ const clear = (canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) => 
 
 const drawStar = (
   context: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement,
   star: Star
 ) => {
     context.fillStyle = `hsla(0, 100%, 100%, ${star.alpha})`;
+    console.log(context.fillStyle)
     context.beginPath();
     context.arc(star.x, star.y, star.scale, 0, Math.PI * 2);
     context.fill();
