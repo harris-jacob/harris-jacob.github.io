@@ -1,7 +1,8 @@
-import dynamic from "next/dynamic";
 
-const Starscape = dynamic(() => import('../components/Starscape'), {ssr: false})
 
-const Page = (): JSX.Element => <Starscape />;
+const Page = (): JSX.Element => (
+  <div>
+  </div>
+)
 
 export default Page;
