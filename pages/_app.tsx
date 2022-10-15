@@ -1,33 +1,35 @@
-import { css } from '@emotion/css';
-import { Theme } from '@emotion/react';
-import type { AppProps } from 'next/app';
-import { useState } from 'react';
-import { Header } from '../components/Header';
-import { darkTheme, lightTheme } from '../theme';
+import { css } from "@emotion/css";
+import { Global, Theme, ThemeProvider } from "@emotion/react";
+import type { AppProps } from "next/app";
+import { useState } from "react";
+import { Header } from "../components/Header";
+import { darkTheme, injectGlobals, lightTheme } from "../theme";
 
-interface Props extends AppProps {
-  theme: Theme
-}
+injectGlobals();
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLight, setIsLight] = useState(true);
+  const theme = isLight ? lightTheme : darkTheme;
+  const styles = makeStyles(theme);
 
-  const toggleTheme = () => setIsLight(s => !s)
+  const toggleTheme = () => setIsLight((s) => !s);
 
   return (
-    <div>
-    <Header toggleTheme={toggleTheme}/>
-      <Component theme={isLight ? lightTheme : darkTheme} {...pageProps } />
+    <div className={styles.container}>
+      <Header toggleTheme={toggleTheme} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </div>
-  )
+  );
 }
 
+const makeStyles = (theme: Theme) => ({
+  container: css`
+    width: 100%;
+    height: 100%;
+    background-color: ${theme.colors.background};
+  `,
+});
 
-const makeStyles = (theme: Theme) => css`
-  background-color: ${theme.background}
-
-
-`
-
-
-export default MyApp
+export default MyApp;
