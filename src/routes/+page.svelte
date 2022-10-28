@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Hero from '$lib/Hero/index.svelte';
+	import BlogCard from '$lib/BlogCard/index.svelte';
 	import { baseUrl, description, keywords, title } from '$lib/meta';
+	import type { PageData } from './+page';
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -20,6 +24,7 @@
 
 <div>
 	<Hero />
+	<BlogCard data={data[0]} />
 </div>
 
 <style>

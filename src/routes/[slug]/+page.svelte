@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { PageData } from './types';
 	import dateFormat from 'dateformat';
 	import Badge from '$lib/Badge/index.svelte';
 	import { keywords, title, baseUrl } from '$lib/meta';
 
 	import '$lib/prism-theme/nord.css';
+	import type { PageData } from './+page';
 
 	export let data: PageData;
 </script>
@@ -28,8 +28,8 @@
 	<h1 class="title">{data.title}</h1>
 	<h2 class="date">Published on <date>{dateFormat(data.date, 'UTC:dd mmmm yyyy')}</date></h2>
 	<div class="tags">
-		{#each data.tags as tag, index}
-			<Badge num={index}>{tag}</Badge>
+		{#each data.tags as tag}
+			<Badge>{tag}</Badge>
 		{/each}
 	</div>
 	<svelte:component this={data.page} />

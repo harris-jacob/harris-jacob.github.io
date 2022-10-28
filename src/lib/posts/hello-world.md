@@ -4,6 +4,7 @@ title: Hello World!
 date: 2022-10-25
 excerpt: 'Saying hello, an introduction to my blog.'
 tags: [personal, quick-read]
+coverAlt: 'me'
 ---
 
 <div style="padding-bottom:16px;" align="center">

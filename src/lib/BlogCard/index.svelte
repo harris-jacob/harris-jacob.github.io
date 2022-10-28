@@ -1,18 +1,12 @@
 <script lang="ts">
-	interface Data {
-		imageAlt: string;
-		slug: string;
-		title: string;
-		description: string;
-		posted: Date;
-	}
+	import type { PostMetadata } from '$lib/types';
 
-	let data: Data;
+	export let data: PostMetadata;
 </script>
 
 <a href={`/${data.slug}`}>
-	<img width="1rem" height="1rem" src={`/images/posts/${data.slug}.jpg`} alt={data.imageAlt} />
+	<img width="1rem" height="1rem" src={`/images/posts/${data.slug}.jpg`} alt={data.coverAlt} />
 	<h2>{data.title}</h2>
-	<p>{data.description}</p>
-	<date>{data.posted}</date>
+	<p>{data.excerpt}</p>
+	<date>{data.date}</date>
 </a>
