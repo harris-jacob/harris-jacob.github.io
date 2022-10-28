@@ -2,4 +2,13 @@
 	import Hero from '$lib/Hero/index.svelte';
 </script>
 
-<Hero />
+<div>
+	<Hero />
+</div>
+
+<style>
+	div {
+		display: flex;
+		justify-content: center;
+	}
+</style>

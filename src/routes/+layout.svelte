@@ -17,8 +17,6 @@
 	.container {
 		max-width: 1200px;
 		margin: auto;
-		display: flex;
-		justify-content: center;
 	}
 
 	:global(body) {
