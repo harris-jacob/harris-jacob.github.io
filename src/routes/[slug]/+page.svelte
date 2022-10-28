@@ -2,15 +2,31 @@
 	import type { PageData } from './types';
 	import dateFormat from 'dateformat';
 	import Badge from '$lib/Badge/index.svelte';
+	import { keywords, title, baseUrl } from '$lib/meta';
 
 	import '$lib/prism-theme/nord.css';
 
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<meta name="keywords" content={data.tags.concat(keywords).join(', ')} />
+
+	<meta name="description" content={data.excerpt} />
+	<meta property="og:description" content={data.excerpt} />
+	<meta name="twitter:description" content={data.excerpt} />
+
+	<title>{data.title} - {title}</title>
+	<meta property="og:title" content="{data.title} - {title}" />
+	<meta name="twitter:title" content="{data.title} - {title}" />
+
+	<meta property="og:image" content="{baseUrl}/images/posts/{data.slug}.jpg" />
+	<meta name="twitter:image" content="{baseUrl}/images/posts/{data.slug}.jpg" />
+</svelte:head>
+
 <article>
 	<h1 class="title">{data.title}</h1>
-	<h2 class="date">Published on {dateFormat(data.date, 'UTC:dd mmmm yyyy')}</h2>
+	<h2 class="date">Published on <date>{dateFormat(data.date, 'UTC:dd mmmm yyyy')}</date></h2>
 	<div class="tags">
 		{#each data.tags as tag, index}
 			<Badge num={index}>{tag}</Badge>

@@ -15,6 +15,7 @@ export interface Post {
 
 export interface PageData {
 	page: SvelteComponentConstructor<any, any>;
+	slug: string;
 	title: string;
 	tags: Array<string>;
 	date: Date;

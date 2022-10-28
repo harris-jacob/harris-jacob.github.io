@@ -7,7 +7,7 @@ tags: [personal, quick-read]
 ---
 
 <div style="padding-bottom:16px;" align="center">
-  <img width="200" style="border-radius:50%;" alt="me" src="https://avatars.githubusercontent.com/u/65860128?s=400&u=19dec530387a8ce1a57e7b7c9f722c8a0774f428&v=4/">
+  <img width="200" style="border-radius:50%;" alt="me" src="/images/posts/hello-world.jpg"/>
 </div>
 
 Hello, my name is Jacob and i'm a student of software. Lots of people have told me that writing a blog is a great way of organizing thoughts and challenging your own opinions. Since my thoughts and opinions often come across as mad ramblings, I am giving blogging a chance to improve my communication skills.

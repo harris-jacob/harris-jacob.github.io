@@ -19,6 +19,7 @@ export const load: PageLoad = ({ params }): PageData => {
 		title: filteredPost.metadata.title,
 		tags: filteredPost.metadata.tags,
 		date: filteredPost.metadata.date,
-		excerpt: filteredPost.metadata.excerpt
+		excerpt: filteredPost.metadata.excerpt,
+		slug: filteredPost.metadata.slug
 	};
 };
