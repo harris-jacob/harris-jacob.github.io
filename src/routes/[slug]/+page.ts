@@ -1,4 +1,21 @@
-import type { PageData, Post, PageLoad } from './types';
+import type { Post } from '$lib/types';
+
+interface Params {
+	slug: string;
+}
+
+export interface PageData {
+	page: SvelteComponentConstructor<any, any>;
+	slug: string;
+	title: string;
+	tags: Array<string>;
+	date: Date;
+	excerpt: string;
+}
+
+export type PageLoad = ({ params }: { params: Params }) => PageData;
+
+export const csr = false;
 
 export const load: PageLoad = ({ params }): PageData => {
 	const { slug } = params;

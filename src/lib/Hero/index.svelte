@@ -8,8 +8,8 @@
 
 <style>
 	.hero {
-		margin-top: 250px;
-		margin-bottom: 250px;
+		margin-top: 100px;
+		margin-bottom: 40px;
 		position: relative;
 		max-width: 420px;
 		padding: 8px;
