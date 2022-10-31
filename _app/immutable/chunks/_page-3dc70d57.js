@@ -1,0 +1,1 @@
+import{_ as t}from"./hello-world-b2a188fd.js";const o=()=>Object.values(Object.assign({"../lib/posts/hello-world.md":t})).map(e=>e.metadata),l=Object.freeze(Object.defineProperty({__proto__:null,load:o},Symbol.toStringTag,{value:"Module"}));export{l as _,o as l};
