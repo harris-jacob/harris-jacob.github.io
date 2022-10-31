@@ -7,7 +7,7 @@
 		color: var(--background);
 		background-color: var(--primary);
 		border-radius: 16px;
-		padding: 8px;
+		padding: 2px 10px;
 		margin: 4px;
 	}
 </style>

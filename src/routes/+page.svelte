@@ -22,14 +22,22 @@
 	<meta name="twitter:image" content="{baseUrl}/images/posts/hello-world.jpg" />
 </svelte:head>
 
-<div>
+<div class="hero">
 	<Hero />
-	<BlogCard data={data[0]} />
 </div>
+<ul>
+	<BlogCard data={data[0]} />
+</ul>
 
 <style>
-	div {
+	.hero {
 		display: flex;
 		justify-content: center;
+	}
+
+	ul {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, 20rem);
 	}
 </style>
