@@ -26,7 +26,9 @@
 	<Hero />
 </div>
 <ul>
-	<BlogCard data={data[0]} />
+	{#each data.posts as post}
+		<BlogCard data={post} />
+	{/each}
 </ul>
 
 <style>
